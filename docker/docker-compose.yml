@@ -1,0 +1,18 @@
+version: '2'
+services:
+  asset:
+     build: .
+     hostname: asset
+     container_name: asset
+     image: moxion/asset
+     restart: always
+     networks:
+       - public
+     ports:
+       - "7000:7000"
+     volumes:
+       - ./moxion:/service/
+
+networks:
+  public:
+    driver: bridge
